@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <link rel="stylesheet" href='static/css/bootstrap.css'/>
+  <link rel="stylesheet" href='static/css/style.css'/>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+  <h1> {{request.path}} </h1>
+ </head>
+
+ <body>
+  {% for message in get_flashed_messages()%}
+    {{message|safe}} <br>
+  {%endfor%}
+
+ <form action="" method="post">
+
+     {% if fields %}
+         {% for field in fields %}
+         <div class ="form__fieldset">
+             <input type="text" placeholder={{field}} class="form__input" name={{field}}>
+         </div>
+         {%endfor%}
+     {% else %}
+         <div class ="form__fieldset">
+             <input type="text" placeholder="User" class="form__input" name="user">
+         </div>
+     {% endif %}
+
+     {% if request.path == "/login"%}
+     <div class ="form__fieldset">
+         <input type="password" placeholder="Password" class="form__input" name="pass">
+     </div><br>
+     {%endif%}
+
+     {% if request.path == "/permissions"%}
+     <div class ="form__fieldset">
+         <input type="number" placeholder="Demotion (1-5)" class="form__input" name="demotion" min ="1" max="5">
+     </div><br>
+     {%endif%}
+
+     <input class="form__submit form__input btn btn-outline-light" type="submit"
+       value="Submit">
+     <i class="fas fa-expand ms-2"></i>
+  </form>
+ </body>
+
+ <footer>
+  <div class="center fw-light text-white m-0">
+   {% if request.path != "/login" %}
+     <strong>Welcome: {{user}}! </strong><br>
+   {% endif %}
+   <a href="http://localhost:5000/browse">Browse</a>
+   {% if user == "admin" %}
+      <a href="http://localhost:5000/permissions">Permissions</a>
+   {% endif %}
+   <a href="http://localhost:5000/calc">Calculator</a>
+   <a href="http://localhost:5000/login">Logout</a>
+  </div>
+ </footer>
+
+</html>
