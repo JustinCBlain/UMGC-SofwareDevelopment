@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <link rel="stylesheet" href='static/css/style.css'/> <!--My own work-->
+  <link rel="stylesheet" href='static/css/bootstrap.css'/> <!--Publically available style sheet used for aesthetics only-->
+  <!--This "KeyError: 'favicon.ico'" error came out of nowhere;
+  working one sec and then kaput the next-->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <title>WBN WIKI - {{character}}</title>
+ </head>
+
+ <div id="header" ></div>
+
+ <body id = "wiki">
+   <div class="row">
+
+    <div class="column side fw-light text-white m-0" style="background-color:#444";>
+     <h6 class="display-6">Other Pages</h6>
+       <div class="lead">
+        <a href="http://localhost:5000/Suvi">Suvi</a>
+        <br>
+        <a href="http://localhost:5000/Ame">Ame</a>
+        <br>
+        <a href="http://localhost:5000/Eursulon">Eursulon</a>
+        <br>
+
+        <form action="http://localhost:5000/logout">
+        <input class="form__submit form__input btn btn-outline-light"
+               type="submit" value="Logout" style="position: fixed; left: 10;
+               bottom: 55px; padding: 10px;">
+               <i class="fas fa-expand ms-2"></i><!--make a button eventually-->
+        </form>
+       </div>
+    </div>
+
+    <div class="column middle fw-light text-white m-0", style="background-color: rgb(51,44,130)";>
+     <h1 class="display-1">{{ character }}</h1>
+        <h2>Summary</h2> <!-- todo make headers collapsible -->
+    <p>{{ summary }}</p>
+   <h2>Origin</h2>
+    <p>{{ origin }}</p>
+
+
+   <h2>Abilities</h2>
+     <p>{{ abilities }}</p>
+        <h2>Trivia</h2>
+    <ul>
+     {% for t in trivia %}
+      <li>{{ t }}</li>
+     {% endfor %}
+    </ul>
+    </div>
+
+    <div class="column side" style="background-color:#ccc;">
+            <img src="static/{{ pic1 }}" class="flex-inner">
+     <!-- todo make tiny gallery -->
+    <h3>Spells</h3>
+     <div style="overflow-y: auto">
+      <table>
+       <tr>
+        <th>Cantrips</th>
+        {% for c in cantrips %}
+         <td>{{ c }}</td>
+        {% endfor %}
+       </tr>
+
+       <tr>
+       <th>1st Level</th>
+        {% for s in spells %}
+         <td>{{ s }}</td>
+        {% endfor %}
+       </tr>
+      </table>
+     </div>
+    <h2>Items</h2>
+    <ul>
+     {% for i in items %}
+      <li>{{ i }}</li>
+     {% endfor %}
+    </ul>
+
+    </div>
+  </div>
+ </body>
+
+ <footer>
+  <div class="center fw-light text-white m-0">
+   <a href="https://youtu.be/RWPmCpKVPS8?si=TrMaH2BcHoOk_SEv"> WBO youtube</a>
+   <a href="https://worldsbeyondnumber.miraheze.org/wiki/Main_Page"> WBO wiki</a>
+   <a href="https://www.patreon.com/worldsbeyondnumber/posts"> WBO patreon</a>
+  </div>
+ </footer>
+</html>

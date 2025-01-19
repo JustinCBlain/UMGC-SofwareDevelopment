@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+  <link rel="stylesheet" href='static/css/style.css'/> <!--My own work-->
+  <link rel="stylesheet" href='static/css/bootstrap.css'/> <!--Publically available style sheet used for aesthetics only-->
+  <!--This "KeyError: 'favicon.ico'" error came out of nowhere;
+  working one sec and then kaput the next-->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <title>WBN WIKi - {{title}}</title>
+ </head>
+
+ <p id="datetime"></p>
+
+ <body id="form">
+      <h1  class="fw-light text-white m-0 ">{{title}}</h1>
+            {% with messages = get_flashed_messages()%}
+                {% if messages%}
+                    {% for message in messages%}
+                        <p class="fw-light text-white m-0">{{message}}</p>
+                    {%endfor%}
+                {%endif%}
+            {%endwith%}
+      <form action="" method="post">
+
+           <div class ="form__fieldset">
+            <label for="username" class="form__label fw-light text-white m-0">Username</label>
+            <input type="text" name="username" id="username" class="form__input">
+           </div>
+
+           <div class ="form__fieldset">
+              <label for="pass" class="form__label fw-light text-white m-0">Password</label>
+              <input type="password" name="pass" id="pass" class="form__input">
+           </div>
+
+           <input class="form__submit form__input btn btn-outline-light" type="submit"
+           value="{{title}}">
+           <i class="fas fa-expand ms-2"></i>
+
+            {% if title == "Login"%}
+                <form action="http://localhost:5000/register">
+                   <input class="form__submit form__input btn btn-outline-light" type="submit"
+                   value="Update">
+                   <i class="fas fa-expand ms-2"></i>
+                </form>
+            {%endif%}
+
+
+      </form>
+  </body>
+ <footer>
+  <div class="center fw-light text-white m-0">
+   <a href="https://youtu.be/RWPmCpKVPS8?si=TrMaH2BcHoOk_SEv"> WBO youtube</a>
+   <a href="https://worldsbeyondnumber.miraheze.org/wiki/Main_Page"> WBO wiki</a>
+   <a href="https://www.patreon.com/worldsbeyondnumber/posts"> WBO patreon</a>
+  </div>
+ </footer>
+</html>
