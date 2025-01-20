@@ -1,0 +1,12 @@
+john@umgc.edu
+fred@umgc.edu
+sensitive_data/Sensitive.txt
+susan@umgc.edu
+donna@umgc.edu
+javier@umgc.edu
+jessie@umgc.edu
+laura@umgc.edu
+tina@umgc.edu
+todd@umgc.edu
+ed@umgc.edu
+test@umgc.edu

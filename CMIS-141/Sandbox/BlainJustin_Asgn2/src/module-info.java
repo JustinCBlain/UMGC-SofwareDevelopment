@@ -1,0 +1,2 @@
+module asgn2 {
+}
